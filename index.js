@@ -1,22 +1,39 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import '../node_modules/bootstrap/dist/css/bootstrap.css'
-import {store} from './redux/store';
-import {Provider} from 'react-redux';
+export const ADD_TODO = 'ADD_TODO';
+export const DELETE_ALL = 'DELETE_ALL';
+export const REMOVE_TODO = 'REMOVE_TODO';
+export const UPDATE_TODO = 'UPDATE_TODO';
+export const UPDATE_CHECKBOX = 'UPDATE_CHECKBOX'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>
-);
+export const addTodo=(payload)=>{
+    return{
+        type: ADD_TODO,
+        payload
+    }
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+export const deleteAll = () =>{
+    return{
+        type: DELETE_ALL
+    }
+}
+
+export const removeTodo=(payload)=>{
+    return{
+        type: REMOVE_TODO,
+        payload
+    }
+}
+
+export const handleEditSubmit=(payload)=>{
+    return{
+        type: UPDATE_TODO,
+        payload
+    }
+}
+
+export const handleCheckbox=(payload)=>{
+    return{
+        type: UPDATE_CHECKBOX,
+        payload
+    }
+}
